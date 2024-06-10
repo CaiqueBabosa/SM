@@ -1,0 +1,84 @@
+// Modelo (Model)
+// Neste exemplo, o modelo é bastante simples, mas poderíamos adicionar lógica de negócios aqui se necessário.
+
+// models/LoginModel.js
+export default class LoginModel {
+  // Aqui poderiam ser adicionados métodos para autenticação de usuário, validação de CPF, etc.
+}
+
+// Controladores (Controllers)
+// O controlador será responsável por gerenciar as interações do usuário e atualizar o modelo e/ou a visão conforme necessário.
+
+// controllers/LoginController.js
+import LoginModel from "../models/LoginModel";
+
+export const handleLogin = (navigation) => {
+  // Aqui poderiam ser adicionadas lógicas de autenticação de usuário
+  // Por exemplo, validar os campos de CPF e senha, chamar métodos do modelo para autenticar, etc.
+  // Após o login bem-sucedido, redirecionar para a tela "Home"
+  navigation.navigate("Home");
+};
+
+export const handleCreateAccount = (navigation) => {
+  // Aqui poderiam ser adicionadas lógicas para criar uma nova conta
+  // Por exemplo, validar os campos, chamar métodos do modelo para criar uma conta, etc.
+  // Após a criação bem-sucedida, redirecionar para a tela de criação de cadastro
+  navigation.navigate("CriarCadastro");
+};
+
+// Visão (View)
+// Cada tela será representada por um componente React que será responsável pela apresentação da interface de usuário.
+
+// views/LoginScreen.js
+import React from "react";
+import { StyleSheet, View, Pressable, Text } from "react-native";
+import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+import { handleLogin, handleCreateAccount } from "../controllers/LoginController";
+
+const LoginScreen = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      {/* Elementos da interface de usuário */}
+      {/* Botão de login */}
+      <Pressable
+        style={[styles.button, { backgroundColor: Color.colorMediumseagreen }]}
+        onPress={() => handleLogin(navigation)}
+      >
+        <Text style={styles.buttonText}>Entrar</Text>
+      </Pressable>
+      {/* Botão de criar conta */}
+      <Pressable
+        style={[styles.button, { backgroundColor: Color.colorMediumseagreen }]}
+        onPress={() => handleCreateAccount(navigation)}
+      >
+        <Text style={styles.buttonText}>Criar conta</Text>
+      </Pressable>
+      {/* Outros elementos da tela */}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    width: 200,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+  },
+});
+
+export default LoginScreen;
