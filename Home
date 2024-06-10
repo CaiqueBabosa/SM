@@ -1,0 +1,39 @@
+// HomeMVC.js
+
+// Modelo (Model) - Não é necessário neste caso, pois não há lógica de negócios específica
+
+// Controlador (Controller)
+export default class HomeController {
+  // Método para lidar com a navegação para a tela de Denúncia
+  static navigateToDenuncia(navigation) {
+    navigation.navigate("Denncia");
+  }
+}
+
+// Visão (View)
+import React from "react";
+import { StyleSheet, View, Pressable, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import HomeController from "../controllers/HomeController";
+import { Color, FontSize, FontFamily } from "../GlobalStyles";
+
+const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.home}>
+      {/* Seção da Visão (View) */}
+      <Pressable
+        style={[styles.homeInner, styles.homeShadowBox]}
+        onPress={() => HomeController.navigateToDenuncia(navigation)}
+      />
+      {/* Restante do código da tela de Home */}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  // Estilos da Visão (View)
+});
+
+export default HomeScreen;
