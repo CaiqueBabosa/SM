@@ -1,0 +1,74 @@
+// Modelo (Model)
+// Este arquivo poderia conter lógica de negócios e manipulação de dados, mas como não há muito no código original, 
+// vamos considerar apenas como um placeholder para incluir lógica adicional, se necessário.
+
+// models/UserModel.js
+export default class UserModel {
+  // Aqui poderiam existir métodos para manipular os dados do usuário, como salvar, atualizar, excluir, etc.
+}
+
+// Controladores (Controllers)
+// Estes controladores serão responsáveis por gerenciar as interações do usuário e atualizar o modelo e/ou a visão conforme necessário.
+
+// controllers/NavigationController.js
+export const navigateTo = (navigation, screenName) => {
+  navigation.navigate(screenName);
+};
+
+// Visão (View)
+// Aqui, cada tela seria um componente React separado, como já está no código original. 
+// No entanto, podemos modularizá-los ainda mais para melhorar a organização e a legibilidade.
+
+// views/FaceIdScreen.js
+import React from "react";
+import { View } from "react-native";
+
+const FaceIdScreen = () => {
+  // Componente da tela FaceId
+};
+
+export default FaceIdScreen;
+
+// views/HomeScreen.js
+// Outras telas seguem o mesmo padrão que FaceIdScreen.js
+
+// App.js
+// Este arquivo servirá principalmente para configurar a navegação e renderizar o componente principal da aplicação.
+
+import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import UserModel from "./models/UserModel";
+import * as NavigationController from "./controllers/NavigationController";
+import FaceIdScreen from "./views/FaceIdScreen";
+import HomeScreen from "./views/HomeScreen";
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+  const [hideSplashScreen, setHideSplashScreen] = useState(true);
+
+  // Aqui poderiam ser incluídas outras lógicas de inicialização, como verificação de autenticação, etc.
+
+  return (
+    <NavigationContainer>
+      {hideSplashScreen ? (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="FaceId"
+            component={FaceIdScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          {/* Outras telas seguem o mesmo padrão */}
+        </Stack.Navigator>
+      ) : null}
+    </NavigationContainer>
+  );
+};
+
+export default App;
