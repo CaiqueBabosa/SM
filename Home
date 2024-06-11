@@ -37,3 +37,365 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+
+
+
+//ORIGINAL
+
+import * as React from "react";
+import { StyleSheet, View, Text, Pressable } from "react-native";
+import { Image } from "expo-image";
+import { useNavigation } from "@react-navigation/native";
+import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
+
+const Home = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.home}>
+      <View style={[styles.homeChild, styles.homeLayout]} />
+      <Image
+        style={styles.inserirUmTtulo31}
+        contentFit="cover"
+        source={require("../assets/inserir-um-ttulo-3-1.png")}
+      />
+      <View style={[styles.homeItem, styles.homeLayout]} />
+      <Text style={[styles.incio, styles.iFlexBox]}>Início</Text>
+      <Pressable
+        style={[styles.homeInner, styles.homeShadowBox]}
+        onPress={() => navigation.navigate("Denncia")}
+      />
+      <Pressable
+        style={[styles.rectanglePressable, styles.homeChild1ShadowBox]}
+        onPress={() => navigation.navigate("Denncia")}
+      />
+      <Pressable
+        style={[styles.homeChild1, styles.homeChild1ShadowBox]}
+        onPress={() => navigation.navigate("Denncia")}
+      />
+      <Pressable
+        style={[styles.homeChild2, styles.homeShadowBox]}
+        onPress={() => navigation.navigate("Denncia")}
+      />
+      <Text style={styles.paraDenunciarSelecione}>
+        Para denunciar selecione um tópico:
+      </Text>
+      <Text style={[styles.violnciaDomstica, styles.assdioSexualTypo]}>
+        Violência doméstica
+      </Text>
+      <Text style={[styles.assdioSexual, styles.assdioSexualTypo]}>
+        Assédio sexual
+      </Text>
+      <Text style={[styles.estupro, styles.outroTypo]}>Estupro</Text>
+      <Text style={[styles.outro, styles.outroTypo]}>Outro</Text>
+      <Image
+        style={[styles.lineIcon, styles.lineIconLayout]}
+        contentFit="cover"
+        source={require("../assets/line-22.png")}
+      />
+      <Image
+        style={[styles.homeChild3, styles.lineIconLayout]}
+        contentFit="cover"
+        source={require("../assets/line-23.png")}
+      />
+      <View style={[styles.lineParent, styles.homePosition]}>
+        <View style={styles.groupChild} />
+        <Image
+          style={[styles.homeHomePageHomepageHomepaIcon, styles.homeIconLayout]}
+          contentFit="cover"
+          source={require("../assets/1976053-home-home-page-homepage-homepages-icon-1-1.png")}
+        />
+        <Image
+          style={[styles.clipboardTextIcon12, styles.clipboardIconLayout]}
+          contentFit="cover"
+          source={require("../assets/9111083-clipboard-text-icon-1-2.png")}
+        />
+        <Pressable
+          style={[styles.ellipseParent, styles.clipboardIconLayout]}
+          onPress={() => navigation.navigate("Informaes")}
+        >
+          <Image
+            style={[styles.groupItem, styles.clipboardIconLayout]}
+            contentFit="cover"
+            source={require("../assets/ellipse-74.png")}
+          />
+          <Text style={[styles.i, styles.iFlexBox]}>i</Text>
+        </Pressable>
+        <Pressable
+          style={styles.wrapper}
+          onPress={() => navigation.navigate("Chat")}
+        >
+          <Image
+            style={styles.icon}
+            contentFit="cover"
+            source={require("../assets/group-11.png")}
+          />
+        </Pressable>
+        <Pressable
+          style={styles.personCircleOutlineIcon1}
+          onPress={() => navigation.navigate("Perfil")}
+        >
+          <Image
+            style={styles.icon}
+            contentFit="cover"
+            source={require("../assets/9035564-person-circle-outline-icon-1-3.png")}
+          />
+        </Pressable>
+      </View>
+      <Pressable
+        style={[styles.clipboardTextIcon4, styles.clipboardIconLayout]}
+        onPress={() => navigation.navigate("MinhasDenuncias")}
+      >
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("../assets/9111083-clipboard-text-icon-4.png")}
+        />
+      </Pressable>
+      <Image
+        style={[styles.homeHomePageHomepageHomepaIcon1, styles.homeIconLayout]}
+        contentFit="cover"
+        source={require("../assets/1976053-home-home-page-homepage-homepages-icon-2-2.png")}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  homeLayout: {
+    height: 100,
+    width: 575,
+    backgroundColor: Color.colorDarkslateblue_100,
+    top: 0,
+    position: "absolute",
+  },
+  iFlexBox: {
+    textAlign: "left",
+    position: "absolute",
+  },
+  homeShadowBox: {
+    opacity: 0.5,
+    height: 107,
+    borderWidth: 1,
+    borderColor: Color.colorDarkgray,
+    backgroundColor: Color.colorBisque_100,
+    borderRadius: Border.br_7xs,
+    shadowOpacity: 1,
+    elevation: 4,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    top: 560,
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  homeChild1ShadowBox: {
+    top: 698,
+    opacity: 0.5,
+    height: 107,
+    borderWidth: 1,
+    borderColor: Color.colorDarkgray,
+    borderStyle: "solid",
+    backgroundColor: Color.colorBisque_100,
+    borderRadius: Border.br_7xs,
+    shadowOpacity: 1,
+    elevation: 4,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    position: "absolute",
+  },
+  assdioSexualTypo: {
+    height: 85,
+    color: Color.colorBlack,
+    fontSize: FontSize.size_mid,
+    textAlign: "left",
+    fontFamily: FontFamily.robotoSlabRegular,
+    position: "absolute",
+  },
+  outroTypo: {
+    width: 223,
+    height: 85,
+    color: Color.colorBlack,
+    fontSize: FontSize.size_mid,
+    textAlign: "left",
+    fontFamily: FontFamily.robotoSlabRegular,
+    position: "absolute",
+  },
+  lineIconLayout: {
+    width: 1,
+    position: "absolute",
+  },
+  homePosition: {
+    top: 864,
+    left: 17,
+  },
+  homeIconLayout: {
+    height: 57,
+    width: 52,
+    position: "absolute",
+  },
+  clipboardIconLayout: {
+    height: 55,
+    width: 55,
+    position: "absolute",
+  },
+  homeChild: {
+    left: 0,
+  },
+  inserirUmTtulo31: {
+    top: -20,
+    left: 18,
+    width: 393,
+    height: 730,
+    position: "absolute",
+  },
+  homeItem: {
+    left: -84,
+  },
+  incio: {
+    top: 55,
+    left: 26,
+    fontSize: FontSize.size_15xl,
+    color: Color.colorWhite,
+    fontFamily: FontFamily.robotoSlabRegular,
+    textAlign: "left",
+  },
+  homeInner: {
+    width: 167,
+    left: 32,
+  },
+  rectanglePressable: {
+    width: 167,
+    left: 32,
+  },
+  homeChild1: {
+    left: 244,
+    width: 157,
+  },
+  homeChild2: {
+    left: 249,
+    width: 152,
+  },
+  paraDenunciarSelecione: {
+    top: 490,
+    fontSize: FontSize.size_3xl,
+    fontFamily: FontFamily.robotoRegular,
+    color: Color.colorGray_100,
+    width: 388,
+    left: 32,
+    textAlign: "left",
+    position: "absolute",
+  },
+  violnciaDomstica: {
+    top: 592,
+    left: 74,
+    width: 141,
+  },
+  assdioSexual: {
+    top: 601,
+    left: 268,
+    width: 150,
+  },
+  estupro: {
+    top: 741,
+    left: 83,
+  },
+  outro: {
+    top: 737,
+    left: 299,
+  },
+  lineIcon: {
+    top: 137,
+    height: 343,
+    left: 17,
+    width: 1,
+  },
+  homeChild3: {
+    top: 138,
+    left: 410,
+    height: 341,
+  },
+  groupChild: {
+    top: 90,
+    left: 67,
+    borderColor: Color.colorDarkslateblue_200,
+    borderTopWidth: 1,
+    width: 100,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  homeHomePageHomepageHomepaIcon: {
+    left: 0,
+    top: 0,
+  },
+  clipboardTextIcon12: {
+    left: 88,
+    top: 2,
+  },
+  groupItem: {
+    left: 0,
+    top: 0,
+  },
+  i: {
+    top: 5,
+    left: 23,
+    fontSize: FontSize.size_17xl,
+    fontWeight: "800",
+    fontFamily: FontFamily.robotoBlack,
+    color: Color.colorDarkgray,
+    width: 10,
+  },
+  ellipseParent: {
+    left: 172,
+    top: 2,
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  wrapper: {
+    left: 259,
+    width: 58,
+    height: 58,
+    top: 2,
+    position: "absolute",
+  },
+  personCircleOutlineIcon1: {
+    left: 340,
+    width: 60,
+    height: 60,
+    top: 0,
+    position: "absolute",
+  },
+  lineParent: {
+    width: 400,
+    height: 90,
+    position: "absolute",
+  },
+  clipboardTextIcon4: {
+    left: 105,
+    top: 866,
+  },
+  homeHomePageHomepageHomepaIcon1: {
+    top: 864,
+    left: 17,
+  },
+  home: {
+    backgroundColor: Color.colorWhite,
+    flex: 1,
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+  },
+});
+
+export default Home;
