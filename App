@@ -72,3 +72,176 @@ const App = () => {
 };
 
 export default App;
+
+
+//ORIGINAL
+
+const Stack = createNativeStackNavigator();
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import FaceId from "./screens/FaceId";
+import TelaDeEspera from "./screens/TelaDeEspera";
+import TelaDeLogin from "./screens/TelaDeLogin";
+import Home from "./screens/Home";
+import Home1 from "./screens/Home1";
+import Chat from "./screens/Chat";
+import MinhasDenuncias from "./screens/MinhasDenuncias";
+import Denncia from "./screens/Denncia";
+import TermosDeUso from "./screens/TermosDeUso";
+import Perfil from "./screens/Perfil";
+import MeusDados from "./screens/MeusDados";
+import Notificaes from "./screens/Notificaes";
+import Ajuda from "./screens/Ajuda";
+import PrivacidadeEDados from "./screens/PrivacidadeEDados";
+import CompartilhamentoDeDados from "./screens/CompartilhamentoDeDados";
+import CompartilhamentoDeDados1 from "./screens/CompartilhamentoDeDados1";
+import ProblemasComOApp from "./screens/ProblemasComOApp";
+import Feedback from "./screens/Feedback";
+import CriarCadastro from "./screens/CriarCadastro";
+import Confirmao from "./screens/Confirmao";
+import Informaes from "./screens/Informaes";
+import Termos from "./screens/Termos";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
+
+const App = () => {
+  const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
+
+  const [fontsLoaded, error] = useFonts({
+    "Federo-Regular": require("./assets/fonts/Federo-Regular.ttf"),
+    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    "Roboto-Black": require("./assets/fonts/Roboto-Black.ttf"),
+    "RobotoSlab-Regular": require("./assets/fonts/RobotoSlab-Regular.ttf"),
+    "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
+  });
+
+  if (!fontsLoaded && !error) {
+    return null;
+  }
+
+  return (
+    <>
+      <NavigationContainer>
+        {hideSplashScreen ? (
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen
+              name="FaceId"
+              component={FaceId}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="TelaDeEspera"
+              component={TelaDeEspera}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="TelaDeLogin"
+              component={TelaDeLogin}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Home1"
+              component={Home1}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Chat"
+              component={Chat}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="MinhasDenuncias"
+              component={MinhasDenuncias}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Denncia"
+              component={Denncia}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="TermosDeUso"
+              component={TermosDeUso}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Perfil"
+              component={Perfil}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="MeusDados"
+              component={MeusDados}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Notificaes"
+              component={Notificaes}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Ajuda"
+              component={Ajuda}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="PrivacidadeEDados"
+              component={PrivacidadeEDados}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CompartilhamentoDeDados"
+              component={CompartilhamentoDeDados}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CompartilhamentoDeDados1"
+              component={CompartilhamentoDeDados1}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ProblemasComOApp"
+              component={ProblemasComOApp}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Feedback"
+              component={Feedback}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CriarCadastro"
+              component={CriarCadastro}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Confirmao"
+              component={Confirmao}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Informaes"
+              component={Informaes}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Termos"
+              component={Termos}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : null}
+      </NavigationContainer>
+    </>
+  );
+};
+export default App;
